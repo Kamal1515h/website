@@ -1,4 +1,4 @@
-/* Resetting default styles */
+/* /* Resetting default styles */
 * {
     margin: 0;
     padding: 0;
@@ -51,3 +51,4 @@ nav ul li a:hover {
 header {
     animation: glow 2s infinite alternate;
 }
+ */
