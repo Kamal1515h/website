@@ -1,39 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce Website</title>
-    <link rel="stylesheet" href="style.css">
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  margin-right: 10px;
+  width: 100px;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin-right: 20px;
+}
+
+.nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+}
+
+.cart.count {
+  background-color: #ff69b4;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">Ecommerce Store</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="main-section">
-        <div class="container">
-            <div class="main-image">
-                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fdog&psig=AOvVaw3MetgejhCPQ_ugfR3FESsR&ust=1716655350352000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJD0muTdpoYDFQAAAAAdAAAAABAE" alt="Dog Image">
-            </div>
-            <div class="content">
-                <!-- Content goes here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Other content goes here -->
-
-    <script src="script.js"></script>
+<header class="header">
+  <div class="logo">
+    <img src="https://www.freepik.com/premium-vector/bird-logo-design_59022369.jpg" alt="Hyper Nature">
+    <span>Hyper Nature</span>
+  </div>
+  <nav class="nav">
+    <li><a href="#">HOME</a></li>
+    <li><a href="#">AFFILIATE PORTAL</a></li>
+    <li><a href="#">MY ACCOUNT</a></li>
+  </nav>
+  <div class="cart">
+    <a href="#">
+      <img src="https://www.pinterest.com/pin/shopping-cart-logo-graphic-by-deemka-studio-creative-fabrica--689191549213206082.jpg" alt="Cart" width="30px">
+    </a>
+    <span class="count">0</span>
+    <span>€0.00</span>
+  </div>
+</header>
 </body>
 </html>
