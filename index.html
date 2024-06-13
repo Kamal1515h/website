@@ -1,78 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced Messaging App Interface</title>
 <style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
-
-.header {
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  margin-right: 10px;
-  width: 100px;
-}
-
-.nav {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav li {
-  margin-right: 20px;
-}
-
-.nav a {
-  color: #333;
-  text-decoration: none;
-}
-
-.cart {
-  display: flex;
-  align-items: center;
-}
-
-.cart.count {
-  background-color: #ff69b4;
-  color: #fff;
-  border-radius: 50%;
-  padding: 5px 10px;
-  margin-left: 10px;
-}
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://wallpapercave.com/wp/wp6559609.jpg'); /* Replace with your actual background image */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .sidebar {
+    width: 20%;
+    background-color: rgba(31, 31, 31, 0.95); /* Semi-transparent background for sidebar */
+    height: 100vh;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  .chat-list-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .chat-list-item:hover, .chat-list-item.active {
+    background-color: #333;
+  }
+  .chat-area {
+    margin-left: 20%;
+    padding: 20px;
+    height: calc(100vh - 60px);
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: rgba(18, 18, 18, 0.95); /* Semi-transparent background for chat area */
+  }
+  .message {
+    background-color: #252525;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 15px;
+    max-width: 70%;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  .message.sent {
+    background-color: #4a148c;
+    color: #fff;
+    margin-left: auto;
+    box-shadow: 0 2px 5px rgba(75, 0, 130, 0.2);
+  }
+  .message::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  .message.received::after {
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #252525 transparent transparent;
+  }
+  .message.sent::after {
+    right: -10px;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #4a148c;
+  }
+  .input-area {
+    position: fixed;
+    bottom: 0;
+    left: 20%;
+    width: 80%;
+    padding: 15px;
+    background-color: #1f1f1f; /* Match this color to the bottom part of your chat-area background */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    z-index: 2; /* This will ensure the input area stays above the chat-area */
+  }
+  input[type="text"] {
+    width: calc(100% - 60px);
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    border-radius: 20px;
+    outline: none;
+  }
+  input[type="text"]::placeholder {
+    color: #bbb;
+  }
+  .send-button {
+    padding: 10px 15px;
+    background-color: #4a148c;
+    border: none;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1f1f1f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 </style>
 </head>
 <body>
-<header class="header">
-  <div class="logo">
-    <img src="https://www.freepik.com/premium-vector/bird-logo-design_59022369.jpg" alt="Hyper Nature">
-    <span>Hyper Nature</span>
+  <div class="sidebar">
+    <!-- List of chats/contacts -->
+    <div class="chat-list-item active">John Doe</div>
+    <div class="chat-list-item">Jane Smith</div>
+    <div class="chat-list-item">Mike Ross</div>
+    <!-- Add more chat list items here -->
   </div>
-  <nav class="nav">
-    <li><a href="#">HOME</a></li>
-    <li><a href="#">AFFILIATE PORTAL</a></li>
-    <li><a href="#">MY ACCOUNT</a></li>
-  </nav>
-  <div class="cart">
-    <a href="#">
-      <img src="https://www.pinterest.com/pin/shopping-cart-logo-graphic-by-deemka-studio-creative-fabrica--689191549213206082.jpg" alt="Cart" width="30px">
-    </a>
-    <span class="count">0</span>
-    <span>€0.00</span>
+  <div class="chat-area">
+    <!-- Chat messages -->
+    <div class="message received">Hey, how are you?</div>
+    <div class="message sent">I'm good, thanks for asking! And you?</div>
+    <div class="message received">I'm doing well, just working on a project.</div>
+    <!-- Add more messages here -->
   </div>
-</header>
+  <div class="input-area">
+    <input type="text" placeholder="Type a message...">
+    <button class="send-button">Send</button>
+  </div>
 </body>
 </html>
